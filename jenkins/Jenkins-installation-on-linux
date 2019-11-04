@@ -1,0 +1,67 @@
+Text Direction : Download & Configure Jenkins on Linux
+Install Jenkins on Linux Machine
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list apt-get update apt-get install jenkins
+Note: 
+1. There is a bug in the latest Jenkins which is 2.95. (Dec 15th, 2017)
+
+If apt-get install jenkins failed to install and start Jenkins for you, try to install a previous version of jenkins by running apt-get install jenkins=2.67 
+
+
+
+2. If your Jenkins start is failing with Java Error then you need to Install Java First then Start Jenkins.
+
+
+
+Install Java on Linux/Unix/Debian Machine:
+sudo apt-get update
+
+
+
+Check Java Version:
+
+java -version
+
+
+
+If Output like this :
+
+The program 'java' can be found in the following packages: * default-jre * gcj-5-jre-headless * openjdk-8-jre-headless * gcj-4.8-jre-headless * gcj-4.9-jre-headless * openjdk-9-jre-headless
+
+
+Execute the Commands:
+
+sudo add-apt-repository ppa:webupd8team/javasudo apt-get updatesudo apt-get install oracle-java8-installersudo apt-get install oracle-java8-set-default
+
+
+Again check for Java version:
+
+java -version
+
+
+
+Output would be like :
+
+openjdk version "1.8.0_171"OpenJDK Runtime Environment (build 1.8.0_171-8u171-b11-0ubuntu0.16.04.1-b11)OpenJDK 64-Bit Server VM (build 25.171-b11, mixed mode)
+
+
+Commands to Start/Stop/Status Check for Jenkins:
+
+
+Start Jenkins:
+
+systemctl start jenkins
+
+
+Check Status of Jenkins:
+
+systemctl status jenkins
+
+
+Stop Jenkins:
+
+systemctl stop jenkins
+
+
+Restart Jenkins:
+
+systemctl restart jenkins
